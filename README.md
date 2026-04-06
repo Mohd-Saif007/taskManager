@@ -5,10 +5,10 @@
 ## Features 
 
 1. **Create Task** 
-2. **View All Tasks** - सभी tasks की list देख सकते हैं
-3. **Edit Task** - किसी भी task को edit कर सकते हैं
-4. **Delete Task** - task को delete कर सकते हैं
-5. **Mark Complete** - (भविष्य में add किया जा सकता है)
+2. **View All Tasks** 
+3. **Edit Task** 
+4. **Delete Task** 
+5. **Mark Complete** 
 
 ## Database
 
