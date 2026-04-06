@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+                <h3 class="mt-5">Create Task</h3>
+                <form action="/register" method="post">
+                    <input type="text" placeholder="Enter task title..." class="form-control my-3" name="title" required>
+                    <textarea placeholder="Enter task description..." class="form-control my-3" name="description" rows="3" required></textarea>
+                    <input type="text" placeholder="Enter category..." class="form-control my-3" name="category" value="General">
+                    <input type="date" class="form-control my-3" name="dueDate">
+                    <button type="submit" class="btn btn-success">Add Task</button>
+                </form>
+                <a href="/show" class="btn btn-info mt-3">View All Tasks</a>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</body>
+</html>

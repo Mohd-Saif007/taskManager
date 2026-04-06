@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+                <h3 class="mt-5">Edit Task</h3>
+                
+                <form action="/update" method="post">
+                    <input type="hidden" value="<%- result._id -%>" name="id">
+                    <input type="text" placeholder="Enter task title..." class="form-control my-3" name="title" value="<%- result.title -%>" required>
+                    <textarea placeholder="Enter task description..." class="form-control my-3" name="description" rows="3"><%- result.description -%></textarea>
+                    <input type="text" placeholder="Enter category..." class="form-control my-3" name="category" value="<%- result.category -%>" required>
+                    <input type="date" class="form-control my-3" name="dueDate">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <a href="/show" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>All Tasks</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">My Tasks</h2>
+    <a href="/" class="btn btn-primary mb-3">+ Add New Task</a>
+    
+  <table class="table table-borderd">
+    <thead>
+        <tr>
+            <th>Sr.</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% result.forEach((task,index)=>{ %>
+                <tr> 
+                    <td><%- index+1 -%></td>
+                    <td><%- task.title -%></td>
+                    <td><%- task.description -%></td>
+                    <td><span class="badge bg-info"><%- task.category -%></span></td>
+                    <td><% if(task.dueDate) { %><%- new Date(task.dueDate).toLocaleDateString() -%><% } else { %>-<% } %></td>
+                    <td><span class="badge bg-<%= task.completed ? 'success' : 'warning' %>"><%= task.completed ? 'Completed' : 'Pending' %></span></td>
+                    <td>
+                        <% if (!task.completed) { %>
+                        <form action="/mark-complete" method="post" style="display:inline;">
+                            <input type="hidden" value="<%-task._id-%>" name="id">
+                            <button class="btn btn-success btn-sm">Complete</button>
+                        </form>
+                        <% } %>
+                     </td>
+                     <td>
+                        <form action="/edit" method="post" style="display:inline;">
+                            <input type="hidden" value="<%-task._id-%>" name="id">
+                            <button class="btn btn-primary btn-sm">Edit</button>
+                        </form>
+                     </td>
+                     <td>
+                      <form action="/delete" method="post" style="display:inline;">
+                        <input type="hidden" value="<%-task._id-%>" name="id">
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                      </form>
+                     </td>
+                </tr>
+        <% }) %>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
